@@ -1,7 +1,11 @@
 const knex = require('../config/database');
 
 exports.getProductTypes = async (req, res) => {
-  const productTypes = await knex('product_types');
+  try {
+    const productTypes = await knex('product_types');
 
-  return res.status(200).json({ categorias: productTypes });
+    return res.status(200).json({ productTypes: productTypes });
+  } catch (e) {
+    return res.status(500).json({ message: 'Erro no servidor' });
+  }
 };
