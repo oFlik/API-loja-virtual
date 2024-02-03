@@ -1,7 +1,7 @@
 {
   "name": "api-loja-virtual",
   "version": "1.0.0",
-  "description": "Uma API com todas as funcionalidades necessárias em uma loja virtual. Tais como, cadastro e atualização de usuários e controle de vendas e estoque.",
+  "description": "Uma API com todas as funcionalidades necessárias em uma loja virtual.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.js"
