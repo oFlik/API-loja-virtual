@@ -1,0 +1,25 @@
+{
+  "name": "api-loja-virtual",
+  "version": "1.0.0",
+  "description": "Uma API com todas as funcionalidades necessárias em uma loja virtual. Tais como, cadastro e atualização de usuários e controle de vendas e estoque.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oFlik/API-loja-virtual.git"
+  },
+  "author": "Thiago Pereira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oFlik/API-loja-virtual/issues"
+  },
+  "homepage": "https://github.com/oFlik/API-loja-virtual#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
