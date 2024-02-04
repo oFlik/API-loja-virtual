@@ -1,9 +1,11 @@
 const index = require('../routes/indexRoutes');
-const products = require('../routes/productRoutes');
-const users = require('../routes/userRoutes');
+const product = require('../routes/productRoutes');
+const user = require('../routes/userRoutes');
+const auth = require('../routes/authRoutes');
 
 module.exports = (app) => {
   app.use('/', index);
-  app.use('/products', products);
-  app.use('/users', users);
+  app.use('/product', product);
+  app.use('/user', user);
+  app.use('/auth', auth);
 };
