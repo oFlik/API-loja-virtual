@@ -24,9 +24,9 @@ exports.register = async (req, res) => {
       .insert({ name, email, password: hashPassword })
       .returning('*');
 
-    const { password: userPassword, ...user } = newUser[0];
+    const { password: _, ...userData } = newUser[0];
 
-    return res.status(201).json({ message: 'Cliente cadastrado com sucesso!', userData: user });
+    return res.status(201).json({ message: 'Cliente cadastrado com sucesso!', userData });
   } catch (e) {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
