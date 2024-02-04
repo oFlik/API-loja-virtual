@@ -3,8 +3,8 @@ const router = express();
 
 const { register } = require('../controllers/userControllers');
 
-const { validateRegisterBody } = require('../middlewares/userMiddlewares');
+const { validateRegisterBody } = require('../middlewares/reqBodyValidation');
 
-router.post('/', validateRegisterBody, register);
+router.post('/register', validateRegisterBody, register);
 
 module.exports = router;
