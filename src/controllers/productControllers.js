@@ -6,6 +6,6 @@ exports.getProductTypes = async (req, res) => {
 
     return res.status(200).json({ productTypes: productTypes });
   } catch (e) {
-    return res.status(500).json({ message: 'Erro no servidor' });
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
 };
