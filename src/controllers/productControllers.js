@@ -99,7 +99,14 @@ exports.deleteProduct = async (req, res) => {
     const product = await knex('products').where({ id }).first();
 
     if (!product) {
-      return res.status(404).json({ mensagem: 'Não foi possível encontrar o produto.' });
+      return res.status(404).json({ message: 'Não foi possível encontrar o produto.' });
+    }
+
+    const productOrder = await knex('product_orders').where({ product: id }).first();
+    if (productOrder) {
+      return res
+        .status(400)
+        .json({ message: 'O produto esta vinculado a um pedido e não pode ser excluido' });
     }
 
     await knex('products').del().where({ id });
