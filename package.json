@@ -1,7 +1,7 @@
 {
-  "name": "api-loja-virtual",
+  "name": "api-ponto-de-venda",
   "version": "1.0.0",
-  "description": "Uma API com todas as funcionalidades necessárias em uma loja virtual.",
+  "description": "Uma API com todas as funcionalidades necessárias em um ponto de venda para lojas físicas.",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/index.js"
