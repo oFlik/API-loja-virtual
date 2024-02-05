@@ -77,3 +77,16 @@ exports.listProducts = async (req, res) => {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
 };
+
+exports.detailProduct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const product = await knex('products').where({ id }).first();
+    if (!product) {
+      return res.status(404).json({ mensagem: 'Não foi possível encontrar o produto.' });
+    }
+    return res.status(200).json(product);
+  } catch (err) {
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
+  }
+};
