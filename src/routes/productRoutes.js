@@ -9,6 +9,7 @@ router.get('/list', productController.listProducts);
 router.post('/add', validateProductBody, productController.addProduct);
 router.put('/edit/:id', validateProductBody, productController.editProduct);
 router.get('/detail/:id', productController.detailProduct);
+router.delete('/delete/:id', productController.deleteProduct);
 
 router.get('/types', productController.getProductTypes);
 
