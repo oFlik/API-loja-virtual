@@ -59,3 +59,21 @@ exports.editProduct = async (req, res) => {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
 };
+
+exports.listProducts = async (req, res) => {
+  const { productType } = req.query;
+
+  try {
+    let products = '';
+
+    if (productType) {
+      products = await knex('products').where('product_type', '=', productType);
+    } else {
+      products = await knex('products');
+    }
+
+    return res.status(200).json(products);
+  } catch (e) {
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
+  }
+};
