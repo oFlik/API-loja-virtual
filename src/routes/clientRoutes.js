@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express();
 
-const { addClient } = require('../controllers/clientControllers');
+const { addClient, editClient } = require('../controllers/clientControllers');
 
-router.post('/new', addClient);
+const { validateClientBody } = require('../middlewares/reqBodyValidation');
+
+router.post('/new', validateClientBody, addClient);
+router.put('/edit/:id', validateClientBody, editClient);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const knex = require('../config/database');
+const { validateCpf, validateEmail } = require('../helpers/clientValidations');
 
 exports.validateRegisterBody = (req, res, next) => {
   if (!req.body.name || !req.body.email || !req.body.password) {
@@ -36,9 +37,17 @@ exports.validateProductBody = async (req, res, next) => {
   next();
 };
 
-exports.validateClientBody = (req, res, next) => {
+exports.validateClientBody = async (req, res, next) => {
   if (!req.body.name || !req.body.email || !req.body.cpf) {
     return res.status(400).json({ message: 'Preencha todos os campos obrigatórios' });
+  }
+
+  if (!validateCpf(req.body.cpf)) {
+    return res.status(400).json({ message: 'Envie um CPF válido.' });
+  }
+
+  if (!validateEmail(req.body.email)) {
+    return res.status(400).json({ message: 'Envie um email válido.' });
   }
 
   next();

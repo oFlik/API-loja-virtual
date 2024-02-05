@@ -1,22 +1,14 @@
 const knex = require('../config/database');
-const { validateEmail, validateCpf } = require('../middlewares/clientValidations');
+const { validateEmail, validateCpf } = require('../helpers/clientValidations');
 
 exports.addClient = async (req, res) => {
   const { name, email, cpf } = req.body;
 
-  if (!validateEmail(email)) {
-    return res.status(400).json({ message: 'Envie um e-mail válido.' });
-  }
-
-  if (!validateCpf(cpf)) {
-    return res.status(400).json({ message: 'Envie um CPF válido..' });
-  }
-
   try {
-    const validClient = await knex('clients').where({ email }).orWhere({ cpf }).first();
+    const invalidData = await knex('clients').where({ email }).orWhere({ cpf }).first();
 
-    if (validClient) {
-      return res.status(400).json({ mensagem: 'Email ou CPF ja cadastrados.' });
+    if (invalidData) {
+      return res.status(400).json({ message: 'Email ou CPF ja cadastrados.' });
     }
 
     const client = await knex('clients')
@@ -30,6 +22,45 @@ exports.addClient = async (req, res) => {
     return res
       .status(201)
       .json({ message: 'Cliente cadastrado com sucesso!', clientData: client[0] });
+  } catch (e) {
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
+  }
+};
+
+exports.editClient = async (req, res) => {
+  const { name, email, cpf } = req.body;
+  const { id } = req.params;
+
+  try {
+    const clientExists = await knex('clients').where({ id }).first();
+
+    if (!clientExists) {
+      return res.status(404).json({ message: 'Não existe cliente com o ID informado.' });
+    }
+
+    const invalidData = await knex('clients')
+      .where({ email })
+      .andWhere('id', '<>', id)
+      .orWhere({ cpf })
+      .andWhere('id', '<>', id)
+      .first();
+
+    if (invalidData) {
+      return res.status(400).json({ message: 'Email ou CPF ja cadastrados' });
+    }
+
+    const updatedClient = await knex('clients')
+      .where({ id })
+      .update({
+        name,
+        email,
+        cpf,
+      })
+      .returning('*');
+
+    return res
+      .status(200)
+      .json({ message: 'Cliente atualizado com sucesso!', clientData: updatedClient[0] });
   } catch (e) {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
