@@ -63,3 +63,20 @@ exports.newTransaction = async (req, res) => {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
 };
+
+exports.listTransactions = async (req, res) => {
+  const { client } = req.query;
+
+  try {
+    let orders;
+    if (client) {
+      orders = await knex('transactions').where({ client });
+    } else {
+      orders = await knex('transactions');
+    }
+
+    return res.status(200).json(orders);
+  } catch (e) {
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
+  }
+};
