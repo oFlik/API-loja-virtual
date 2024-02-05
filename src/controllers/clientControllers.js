@@ -65,3 +65,25 @@ exports.editClient = async (req, res) => {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
 };
+
+exports.listClients = async (req, res) => {
+  const clients = await knex('clients');
+
+  return res.status(200).json(clients);
+};
+
+exports.detailClient = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const client = await knex('clients').where({ id }).first();
+
+    if (!client) {
+      return res.status(404).json({ mensagem: 'Não existe cliente com o ID informado.' });
+    }
+
+    return res.status(200).json(client);
+  } catch (e) {
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
+  }
+};
