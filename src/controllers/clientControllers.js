@@ -19,7 +19,7 @@ exports.addClient = async (req, res) => {
       return res.status(400).json({ mensagem: 'Email ou CPF ja cadastrados.' });
     }
 
-    const client = await knex('clientes')
+    const client = await knex('clients')
       .insert({
         name,
         email,
@@ -27,7 +27,9 @@ exports.addClient = async (req, res) => {
       })
       .returning('*');
 
-    return res.status(201).json({ message: 'Cliente cadastrado com sucesso!', clientData: client });
+    return res
+      .status(201)
+      .json({ message: 'Cliente cadastrado com sucesso!', clientData: client[0] });
   } catch (e) {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
