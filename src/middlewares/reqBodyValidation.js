@@ -52,3 +52,11 @@ exports.validateClientBody = async (req, res, next) => {
 
   next();
 };
+
+exports.validateTransactionBody = (req, res, next) => {
+  if (!req.body.client || !req.body.productOrders) {
+    return res.status(400).json({ mensagem: 'Informe todos os campos obrigatórios' });
+  }
+
+  next();
+};

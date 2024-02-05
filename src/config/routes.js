@@ -3,6 +3,7 @@ const product = require('../routes/productRoutes');
 const user = require('../routes/userRoutes');
 const auth = require('../routes/authRoutes');
 const client = require('../routes/clientRoutes');
+const transaction = require('../routes/transactionsRoutes');
 
 module.exports = (app) => {
   app.use('/', index);
@@ -10,4 +11,5 @@ module.exports = (app) => {
   app.use('/user', user);
   app.use('/auth', auth);
   app.use('/client', client);
+  app.use('/transaction', transaction);
 };
