@@ -79,7 +79,7 @@ exports.detailClient = async (req, res) => {
     const client = await knex('clients').where({ id }).first();
 
     if (!client) {
-      return res.status(404).json({ mensagem: 'Não existe cliente com o ID informado.' });
+      return res.status(404).json({ message: 'Não existe cliente com o ID informado.' });
     }
 
     return res.status(200).json(client);
