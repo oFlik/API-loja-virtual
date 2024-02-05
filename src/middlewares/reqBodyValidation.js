@@ -35,3 +35,11 @@ exports.validateProductBody = async (req, res, next) => {
 
   next();
 };
+
+exports.validateClientBody = (req, res, next) => {
+  if (!req.body.name || !req.body.email || !req.body.cpf) {
+    return res.status(400).json({ message: 'Preencha todos os campos obrigatórios' });
+  }
+
+  next();
+};
