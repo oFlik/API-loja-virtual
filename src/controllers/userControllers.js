@@ -51,7 +51,7 @@ exports.editProfile = async (req, res) => {
   const { id } = req.user;
 
   if (!name || !email || !password) {
-    return res.status(403).json({ message: 'Todos os campos devem ser preenchidos.' });
+    return res.status(400).json({ message: 'Todos os campos devem ser preenchidos.' });
   }
 
   try {
