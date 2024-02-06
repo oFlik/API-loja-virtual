@@ -1,5 +1,5 @@
 const knex = require('../config/database');
-const { validateEmail, validateCpf } = require('../helpers/clientValidations');
+const { validateEmail } = require('../helpers/clientValidations');
 
 exports.addClient = async (req, res) => {
   const { name, email, cpf } = req.body;
@@ -28,8 +28,16 @@ exports.addClient = async (req, res) => {
 };
 
 exports.editClient = async (req, res) => {
-  const { name, email, cpf } = req.body;
+  const { name, email } = req.body;
   const { id } = req.params;
+
+  if (name || email ) {
+    return res.status(400).json({ message: 'Preencha todos os campos obrigatórios' });
+  }
+
+  if (!validateEmail(email)) {
+    return res.status(400).json({ message: 'Envie um email válido.' });
+  }
 
   try {
     const clientExists = await knex('clients').where({ id }).first();
