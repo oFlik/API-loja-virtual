@@ -105,7 +105,7 @@ exports.deleteProduct = async (req, res) => {
     const productOrder = await knex('product_orders').where({ product: id }).first();
     if (productOrder) {
       return res
-        .status(400)
+        .status(403)
         .json({ message: 'O produto esta vinculado a um pedido e não pode ser excluido' });
     }
 
