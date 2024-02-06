@@ -42,12 +42,13 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 ## Roadmap
 
+- Adicionar uma página dedicada para documentação. (Em andamento)
+- Adicionar testes unitários.
 - Adicionar mais funções, tais como:
     - Cadastro de categorias
     - Detalhar uma compra específica
     - Repetir uma compra
     - Envio de emails de confirmação
-
 - Adicionar integração com Front.
 - Entre outras.
 
