@@ -4,6 +4,7 @@ const user = require('../routes/userRoutes');
 const auth = require('../routes/authRoutes');
 const client = require('../routes/clientRoutes');
 const transaction = require('../routes/transactionsRoutes');
+const docs = require('../routes/docRoutes')
 
 module.exports = (app) => {
   app.use('/', index);
@@ -12,4 +13,5 @@ module.exports = (app) => {
   app.use('/auth', auth);
   app.use('/client', client);
   app.use('/transaction', transaction);
+  app.use('/docs', docs)
 };
