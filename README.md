@@ -59,7 +59,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 **Retornar os dados da API**
 
-```http
+```
   GET /
 ```
 | Parâmetro   | Tipo       | Descrição                           |
