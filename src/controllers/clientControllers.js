@@ -8,7 +8,7 @@ exports.addClient = async (req, res) => {
     const invalidData = await knex('clients').where({ email }).orWhere({ cpf }).first();
 
     if (invalidData) {
-      return res.status(400).json({ message: 'Email ou CPF ja cadastrados.' });
+      return res.status(403).json({ message: 'Email ou CPF ja cadastrados.' });
     }
 
     const client = await knex('clients')
