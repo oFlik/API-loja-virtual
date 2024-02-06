@@ -127,7 +127,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 **Listar todas as categorias de produto cadastradas**
 
-```http
+```
   GET /product/types
 ```
 
@@ -145,7 +145,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Listar todos os produtos cadastrados**
 
-```http
+```
   GET /product/list
 ```
 
@@ -163,7 +163,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Cadastrar um novo produto**
 
-```http
+```
   POST /product/add
 ```
 
@@ -184,7 +184,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Editar um produto existente**
 
-```http
+```
   PUT /product/edit
 ```
 
@@ -206,7 +206,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Detalhar um produto existente**
 
-```http
+```
   GET /product/detail/:id
 ```
 
@@ -225,7 +225,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Excluir um produto existente**
 
-```http
+```
   DELETE /product/delete/:id
 ```
 
@@ -245,7 +245,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Obter dados do usuário logado**
 
-```http
+```
   GET /user/profile
 ```
 
@@ -263,7 +263,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Editar perfil do usuário logado**
 
-```http
+```
   PUT /user/profile
 ```
 
@@ -285,7 +285,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Cadastrar novo cliente**
 
-```http
+```
   POST /client/new
 ```
 
@@ -306,7 +306,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Editar cliente existente**
 
-```http
+```
   PUT /client/edit/:id
 ```
 
@@ -329,7 +329,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Listar todos os clientes cadastrados**
 
-```http
+```
   GET /client/list
 ```
 
@@ -347,7 +347,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Cadastrar nova venda**
 
-```http
+```
   POST /transaction/new
 ```
 
@@ -376,7 +376,7 @@ Para cada produto comprado, enviar um objeto contendo:
 ###
 **Listar todas as vendas cadastradas**
 
-```http
+```
   GET /transaction/list
 ```
 
