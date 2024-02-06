@@ -76,7 +76,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Efetuar o registro de uma novo usuário**
 
-```http
+```
   POST /user/register
 ```
 | Parâmetro   | Tipo      | Obrigatório | Descrição     | Enviar via                     |
@@ -97,7 +97,7 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 ###
 **Efetuar o login de um usuário cadastrado**
 
-```http
+```
   POST /auth/login
 ```
 | Parâmetro   | Tipo       | Obrigatório | Descrição     | Enviar via                     |
