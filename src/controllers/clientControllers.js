@@ -31,7 +31,7 @@ exports.editClient = async (req, res) => {
   const { name, email } = req.body;
   const { id } = req.params;
 
-  if (name || email ) {
+  if (name || email) {
     return res.status(400).json({ message: 'Preencha todos os campos obrigatórios' });
   }
 
@@ -46,10 +46,7 @@ exports.editClient = async (req, res) => {
       return res.status(404).json({ message: 'Não existe cliente com o ID informado.' });
     }
 
-    const invalidData = await knex('clients')
-      .where({ email })
-      .andWhere('id', '<>', id)
-      .first();
+    const invalidData = await knex('clients').where({ email }).andWhere('id', '<>', id).first();
 
     if (invalidData) {
       return res.status(403).json({ message: 'Email ja cadastrado' });
@@ -73,9 +70,13 @@ exports.editClient = async (req, res) => {
 };
 
 exports.listClients = async (req, res) => {
-  const clients = await knex('clients');
+  try {
+    const clients = await knex('clients');
 
-  return res.status(200).json(clients);
+    return res.status(200).json(clients);
+  } catch (e) {
+    return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
+  }
 };
 
 exports.detailClient = async (req, res) => {
