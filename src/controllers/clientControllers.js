@@ -49,12 +49,10 @@ exports.editClient = async (req, res) => {
     const invalidData = await knex('clients')
       .where({ email })
       .andWhere('id', '<>', id)
-      .orWhere({ cpf })
-      .andWhere('id', '<>', id)
       .first();
 
     if (invalidData) {
-      return res.status(400).json({ message: 'Email ou CPF ja cadastrados' });
+      return res.status(400).json({ message: 'Email ja cadastrado' });
     }
 
     const updatedClient = await knex('clients')
