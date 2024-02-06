@@ -52,7 +52,7 @@ exports.editClient = async (req, res) => {
       .first();
 
     if (invalidData) {
-      return res.status(400).json({ message: 'Email ja cadastrado' });
+      return res.status(403).json({ message: 'Email ja cadastrado' });
     }
 
     const updatedClient = await knex('clients')
