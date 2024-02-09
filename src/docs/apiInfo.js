@@ -13,7 +13,7 @@ const swaggerDocument = {
   security: [{ userToken: [] }],
   servers,
   paths: {
-    '/auth/login': paths.authRoutes.login,
+    '/auth/login': paths.auth.login,
   },
   components: {
     schemas: {
