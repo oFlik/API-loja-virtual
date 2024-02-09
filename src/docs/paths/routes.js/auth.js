@@ -10,7 +10,7 @@ exports.login = {
       content: {
         'application/json': {
           schema: {
-            $ref: '#/components/schemas/Login',
+            $ref: '#/components/schemas/ReqBodyLogin',
           },
         },
       },
@@ -22,10 +22,29 @@ exports.login = {
         content: {
           'application/json': {
             schema: {
-              type: 'string',
+              properties: {
+                message: {
+                  enum: ['Login realizado com sucesso!'],
+                  type: 'string',
+                },
+                userData: {
+                  $ref: '#/components/schemas/UserData',
+                },
+                token: {
+                  enum: ['Token de autenticação'],
+                  type: 'string',
+                },
+              },
+              type: 'object',
             },
           },
         },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
       },
     },
   },

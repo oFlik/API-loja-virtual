@@ -1,6 +1,7 @@
 const servers = require('./servers/servers');
 const paths = require('./paths/paths');
 const schemas = require('./components/schemas');
+const responses = require('./components/responses');
 
 const swaggerDocument = {
   openapi: '3.0.0',
@@ -13,11 +14,18 @@ const swaggerDocument = {
   security: [{ userToken: [] }],
   servers,
   paths: {
+    '/': paths.index.indexPage,
     '/auth/login': paths.auth.login,
   },
   components: {
     schemas: {
-      Login: schemas.auth.loginReqBody,
+      ReqBodyLogin: schemas.auth.loginReqBody,
+      UserData: schemas.auth.userData,
+    },
+    responses: {
+      error401: responses.errorModels.error401,
+      error404: responses.errorModels.error404,
+      error500: responses.errorModels.error500,
     },
     securitySchemes: {
       userToken: {
