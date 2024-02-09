@@ -34,7 +34,7 @@ const swaggerDocument = {
         bearerFormat: 'JWT',
       },
     },
-  },
+  }, 
 };
 
 module.exports = swaggerDocument;
