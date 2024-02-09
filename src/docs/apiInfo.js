@@ -16,6 +16,12 @@ const swaggerDocument = {
   paths: {
     '/': paths.index.indexPage,
     '/auth/login': paths.auth.login,
+    '/user/register': paths.user.register,
+    '/user/profile': paths.user.profile,
+    '/client/new': paths.client.new,
+    '/client/edit': paths.client.edit,
+    '/client/list': paths.client.list,
+    '/client/detail/{clientId}': paths.client.detail,
   },
   components: {
     schemas: {
@@ -34,7 +40,7 @@ const swaggerDocument = {
         bearerFormat: 'JWT',
       },
     },
-  }, 
+  },
 };
 
 module.exports = swaggerDocument;
