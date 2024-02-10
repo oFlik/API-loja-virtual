@@ -61,6 +61,12 @@ exports.editProfile = async (req, res) => {
       return res.status(403).json({ message: 'O e-mail já está sendo usado por outro usuário' });
     }
 
+    if (!validateNewPassword(req.body.password)) {
+      return res.status(406).json({
+        message: `Sua senha não é forte o bastante. Lembre-se de usar no mínimo 8 caracteres, letras minúsculas, maiusculas e números.`,
+      });
+    }
+
     const hash = await bcrypt.hash(password, 10);
 
     await knex('users').where({ id }).update({
