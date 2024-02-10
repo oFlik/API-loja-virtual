@@ -7,8 +7,8 @@ const swaggerDocument = {
   openapi: '3.0.0',
   info: {
     title: 'API Ponto de Venda',
-    description:
-      'Uma API com todas as funcionalidades necessárias em um ponto de venda para lojas físicas.',
+    description: `Uma API com todas as funcionalidades necessárias em um ponto de venda para lojas físicas.\n
+    A primeira requisição na rota de produção pode demorar cerca de 50s acima do normal em decorrência da instância gratuita do servidor hospedado.`,
     version: '1.0.0',
   },
   security: [{ userToken: [] }],
@@ -37,7 +37,7 @@ const swaggerDocument = {
       RegisterReqBody: schemas.registerReqBody,
       UserData: schemas.userData,
       ResProductModel: schemas.resProductModel,
-      ReqProductModel: schemas.reqProductModel
+      ReqProductModel: schemas.reqProductModel,
     },
     responses: {
       error401: responses.errorModels.error401,
@@ -45,7 +45,7 @@ const swaggerDocument = {
       error500: responses.errorModels.error500,
       duplicateEmail: responses.errorModels.duplicateEmail,
       weakPassword: responses.errorModels.weakPassword,
-      missingBodyPropertie: responses.errorModels.missingBodyPropertie
+      missingBodyPropertie: responses.errorModels.missingBodyPropertie,
     },
     securitySchemes: {
       userToken: {
