@@ -40,6 +40,9 @@ exports.login = {
           },
         },
       },
+      400: {
+        $ref: '#/components/responses/missingBodyPropertie',
+      },
       401: {
         $ref: '#/components/responses/error401',
       },
