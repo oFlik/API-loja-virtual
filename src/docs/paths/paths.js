@@ -1,8 +1,8 @@
-const index = require('./routes.js/index');
-const auth = require('./routes.js/auth');
-const user = require('./routes.js/user');
-const client = require('./routes.js/client');
-const product = require('./routes.js/products')
+const index = require('./routes/index');
+const auth = require('./routes/auth');
+const user = require('./routes/user');
+const client = require('./routes/client');
+const product = require('./routes/products')
 
 const paths = {
   index,
