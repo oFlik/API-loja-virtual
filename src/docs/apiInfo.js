@@ -33,13 +33,17 @@ const swaggerDocument = {
   },
   components: {
     schemas: {
-      ReqBodyLogin: schemas.auth.loginReqBody,
-      UserData: schemas.auth.userData,
+      LoginReqBody: schemas.loginReqBody,
+      RegisterReqBody: schemas.registerReqBody,
+      UserData: schemas.userData,
     },
     responses: {
       error401: responses.errorModels.error401,
       error404: responses.errorModels.error404,
       error500: responses.errorModels.error500,
+      duplicateEmail: responses.errorModels.duplicateEmail,
+      weakPassword: responses.errorModels.weakPassword,
+      missingBodyPropertie: responses.errorModels.missingBodyPropertie
     },
     securitySchemes: {
       userToken: {
