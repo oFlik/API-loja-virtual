@@ -17,7 +17,7 @@ exports.register = {
       required: true,
     },
     responses: {
-      200: {
+      201: {
         description: 'Mensagem de sucesso e dados do usuário cadastrado.',
         content: {
           'application/json': {
@@ -35,6 +35,9 @@ exports.register = {
             },
           },
         },
+      },
+      400: {
+        $ref: '#/components/responses/missingBodyPropertie',
       },
       403: {
         $ref: '#/components/responses/duplicateEmail',
@@ -61,16 +64,44 @@ exports.profile = {
         content: {
           'application/json': {
             schema: {
+              $ref: '#/components/schemas/UserData',
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
+  put: {
+    summary: 'Edita o cadastro de um usuário existente',
+    description:
+      'O usuário deverá enviar nome, email e senha para edição, caso o email enviado já exista no banco de dados da aplicação no cadastro de outro usuário, não será possível efetuar a edição.',
+    operationId: 'editProfile',
+    requestBody: {
+      description: 'Informações do usuário a serem editadas.',
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#/components/schemas/RegisterReqBody',
+          },
+        },
+      },
+      required: true,
+    },
+    responses: {
+      200: {
+        description: 'Mensagem de sucesso.',
+        content: {
+          'application/json': {
+            schema: {
               properties: {
-                id: {
-                  type: 'integer',
-                },
-                name: {
-                  enum: ['Nome do usuário'],
-                  type: 'string',
-                },
-                email: {
-                  enum: ['E-mail do usuário'],
+                message: {
+                  enum: ['Cliente cadastrado com sucesso!'],
                   type: 'string',
                 },
               },
@@ -79,10 +110,21 @@ exports.profile = {
           },
         },
       },
+      400: {
+        $ref: '#/components/responses/missingBodyPropertie',
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      403: {
+        $ref: '#/components/responses/duplicateEmail',
+      },
+      406: {
+        $ref: '#/components/responses/weakPassword',
+      },
       500: {
         $ref: '#/components/responses/error500',
       },
     },
   },
-  put: {},
 };
