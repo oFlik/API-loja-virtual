@@ -18,10 +18,18 @@ const swaggerDocument = {
     '/auth/login': paths.auth.login,
     '/user/register': paths.user.register,
     '/user/profile': paths.user.profile,
+    '/product/list': '',
+    '/product/add': '',
+    '/product/edit/{id}': '',
+    '/product/detail/{id}': '',
+    '/product/delete/{id}': '',
+    '/product/types': '',
     '/client/new': paths.client.new,
     '/client/edit': paths.client.edit,
     '/client/list': paths.client.list,
     '/client/detail/{clientId}': paths.client.detail,
+    '/transaction/new': '',
+    '/transaction/list': '',
   },
   components: {
     schemas: {
