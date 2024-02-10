@@ -82,3 +82,16 @@ exports.reqProductModel = {
     },
   },
 };
+
+exports.productTypes = {
+  type: 'object',
+  properties: {
+    id: {
+      type: 'integer',
+    },
+    description: {
+      enum: ['Descrição da categoria'],
+      type: 'string',
+    },
+  },
+};

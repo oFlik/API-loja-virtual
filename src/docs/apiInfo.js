@@ -23,7 +23,7 @@ const swaggerDocument = {
     '/product/edit/{id}': paths.product.edit,
     '/product/detail/{id}': paths.product.detail,
     '/product/delete/{id}': paths.product.delete,
-    '/product/types': '',
+    '/product/types': paths.product.types,
     '/client/new': paths.client.new,
     '/client/edit': paths.client.edit,
     '/client/list': paths.client.list,
@@ -38,6 +38,7 @@ const swaggerDocument = {
       UserData: schemas.userData,
       ResProductModel: schemas.resProductModel,
       ReqProductModel: schemas.reqProductModel,
+      ProductTypes: schemas.productTypes,
     },
     responses: {
       error401: responses.errorModels.error401,

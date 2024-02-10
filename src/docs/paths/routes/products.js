@@ -234,4 +234,35 @@ exports.delete = {
   },
 };
 
-exports.types = {};
+exports.types = {
+  get: {
+    summary: 'Obtém uma array com as categorias de produto cadastradas.',
+    description:
+      'Ao acessar esta rota, o usuário irá receber uma array contendo todas as categorias de produto existentes no banco de dados da aplicação.',
+    operationId: 'getProductTypes',
+    responses: {
+      200: {
+        description: 'Retorna as categorias de produto existentes.',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/ProductTypes'
+              }
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      404: {
+        $ref: '#/components/responses/error404',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
+};
