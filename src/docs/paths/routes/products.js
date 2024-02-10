@@ -140,7 +140,44 @@ exports.edit = {
   },
 };
 
-exports.detail = {};
+exports.detail = {
+  get: {
+    summary: 'Obtém as informações de um produto específico.',
+    description:
+      'Ao acessar esta rota, o usuário irá receber um objeto contendo todas as informações sobre o produto selecionado.',
+    operationId: 'detailProduct',
+    parameters: [
+      {
+        in: 'path',
+        name: 'id',
+        type: 'integer',
+        required: true,
+        description: 'Id numérico do produto desejado.',
+      },
+    ],
+    responses: {
+      200: {
+        description: 'Retorna as informações do produto selecionado',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/ResProductModel',
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      404: {
+        $ref: '#/components/responses/error404',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
+};
 
 exports.delete = {};
 
