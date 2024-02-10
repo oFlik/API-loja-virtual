@@ -179,6 +179,59 @@ exports.detail = {
   },
 };
 
-exports.delete = {};
+exports.delete = {
+  delete: {
+    summary: 'Exclui um produto específico do banco de dados.',
+    description:
+      'O usuário seleciona um produto a ser excluído através de seu id, via parâmetro de rota e as informações do mesmo são apagadas do banco de dados.',
+    operationId: 'deleteProduct',
+    parameters: [
+      {
+        in: 'path',
+        name: 'id',
+        type: 'integer',
+        required: true,
+        description: 'Id numérico do produto a ser excluído.',
+      },
+    ],
+    responses: {
+      202: {
+        description: 'Retorna uma mensagem informando o produto que foi excluído.',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/ResProductModel',
+            },
+          },
+        },
+      },
+      403: {
+        description: 'O produto não pode ser excluído pois está vinculado a um pedido.',
+        content: {
+          'application/json': {
+            schema: {
+              properties: {
+                message: {
+                  enum: ['O produto esta vinculado a um pedido e não pode ser excluido'],
+                  type: 'string',
+                },
+              },
+              type: 'object',
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      404: {
+        $ref: '#/components/responses/error404',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
+};
 
 exports.types = {};
