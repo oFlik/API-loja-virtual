@@ -8,7 +8,7 @@ const swaggerDocument = {
   info: {
     title: 'API Ponto de Venda',
     description: `Uma API com todas as funcionalidades necessárias em um ponto de venda para lojas físicas.\n
-    A primeira requisição na rota de produção pode demorar cerca de 50s acima do normal em decorrência da instância gratuita do servidor hospedado.`,
+    A primeira requisição na url de produção pode demorar cerca de 50s acima do normal em decorrência da instância gratuita do servidor hospedado.`,
     version: '1.0.0',
   },
   security: [{ userToken: [] }],
