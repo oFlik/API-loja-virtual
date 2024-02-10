@@ -112,7 +112,7 @@ exports.deleteProduct = async (req, res) => {
     await knex('products').del().where({ id });
 
     return res
-      .status(200)
+      .status(202)
       .send({ message: `Produto ${product.description} excluído com sucesso.` });
   } catch (e) {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
