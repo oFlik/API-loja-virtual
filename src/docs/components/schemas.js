@@ -41,3 +41,25 @@ exports.userData = {
     },
   },
 };
+
+exports.productModel = {
+  type: 'object',
+  properties: {
+    id: {
+      type: 'integer',
+    },
+    description: {
+      enum: ['Descrição do produto'],
+      type: 'string',
+    },
+    stock_count: {
+      type: 'integer',
+    },
+    price: {
+      type: 'number',
+    },
+    product_type: {
+      type: 'integer',
+    },
+  },
+};
