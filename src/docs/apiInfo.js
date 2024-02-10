@@ -36,7 +36,8 @@ const swaggerDocument = {
       LoginReqBody: schemas.loginReqBody,
       RegisterReqBody: schemas.registerReqBody,
       UserData: schemas.userData,
-      ProductModel: schemas.productModel
+      ResProductModel: schemas.resProductModel,
+      ReqProductModel: schemas.reqProductModel
     },
     responses: {
       error401: responses.errorModels.error401,
