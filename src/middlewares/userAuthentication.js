@@ -18,7 +18,7 @@ const userAuthentication = async (req, res, next) => {
     const validUser = await knex('users').where({ id }).first();
 
     if (!validUser) {
-      return res.status(404).json({
+      return res.status(401).json({
         mensagem: 'Não foi possível encontrar uma conta para este usuário.',
       });
     }
