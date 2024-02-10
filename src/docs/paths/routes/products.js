@@ -17,7 +17,7 @@ exports.add = {
     },
     responses: {
       201: {
-        description: 'Mensagem de sucesso e dados do usuário cadastrado.',
+        description: 'Mensagem de sucesso e dados do produto cadastrado.',
         content: {
           'application/json': {
             schema: {
@@ -40,9 +40,6 @@ exports.add = {
       },
       401: {
         $ref: '#/components/responses/error401',
-      },
-      404: {
-        $ref: '#/components/responses/error404',
       },
       500: {
         $ref: '#/components/responses/error500',
@@ -81,7 +78,67 @@ exports.list = {
   },
 };
 
-exports.edit = {};
+exports.edit = {
+  put: {
+    summary: 'Efetua a edição de um produto existente',
+    description:
+      'Ao enviar as novas informações necessárias para editar um produto, o mesmo é alterado no banco de dados da aplicação.',
+    operationId: 'editProduct',
+    parameters: [
+      {
+        in: 'path',
+        name: 'id',
+        type: 'integer',
+        required: true,
+        description: 'Id numérico do produto a ser editado.',
+      },
+    ],
+    requestBody: {
+      description: 'Informações do produto a ser editado.',
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#/components/schemas/ReqProductModel',
+          },
+        },
+      },
+      required: true,
+    },
+    responses: {
+      200: {
+        description: 'Mensagem de sucesso e dados do produto alterado.',
+        content: {
+          'application/json': {
+            schema: {
+              properties: {
+                message: {
+                  enum: ['Produto atualizado com sucesso'],
+                  type: 'string',
+                },
+                productData: {
+                  $ref: '#/components/schemas/ResProductModel',
+                },
+              },
+              type: 'object',
+            },
+          },
+        },
+      },
+      400: {
+        $ref: '#/components/responses/missingBodyPropertie',
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      404: {
+        $ref: '#/components/responses/error404',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
+};
 
 exports.detail = {};
 
