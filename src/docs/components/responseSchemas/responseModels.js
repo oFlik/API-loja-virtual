@@ -48,3 +48,56 @@ exports.error500 = {
     },
   },
 };
+
+exports.duplicateEmail = {
+  description: 'E-mail já cadastrado.',
+  content: {
+    'application/json': {
+      schema: {
+        properties: {
+          message: {
+            enum: ['Email já cadastrado. Tente efetuar o login!'],
+            type: 'string',
+          },
+        },
+        type: 'object',
+      },
+    },
+  },
+};
+
+exports.weakPassword = {
+  description: 'Senha fraca.',
+  content: {
+    'application/json': {
+      schema: {
+        properties: {
+          message: {
+            enum: [
+              'Sua senha não é forte o bastante. Lembre-se de usar no mínimo 8 caracteres, letras minúsculas, maiusculas e números.',
+            ],
+            type: 'string',
+          },
+        },
+        type: 'object',
+      },
+    },
+  },
+};
+
+exports.missingBodyPropertie = {
+  description: 'Os campos necessários para a requisição estão incompletos.',
+  content: {
+    'application/json': {
+      schema: {
+        properties: {
+          message: {
+            enum: ['Todos os campos devem ser preenchidos..'],
+            type: 'string',
+          },
+        },
+        type: 'object',
+      },
+    },
+  },
+};
