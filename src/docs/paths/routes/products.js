@@ -3,7 +3,7 @@ exports.add = {
     summary: 'Efetua o cadastro de um novo produto',
     description:
       'Ao enviar as informações necessárias para um novo produto, o mesmo é cadastrado no banco de dados da aplicação.',
-    operationId: 'appProduct',
+    operationId: 'addProduct',
     requestBody: {
       description: 'Informações do produto a ser cadastrado.',
       content: {
