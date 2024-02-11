@@ -148,3 +148,49 @@ exports.resClientModel = {
     },
   },
 };
+
+exports.reqTransactionModel = {
+  type: 'object',
+  properties: {
+    client: {
+      type: 'integer',
+    },
+    note: {
+      enum: ['Uma observação para a compra, caso exista.'],
+      type: 'string',
+    },
+    productOrders: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          product: {
+            type: 'integer',
+          },
+          quantity: {
+            type: 'integer',
+          },
+        },
+      },
+    },
+  },
+};
+
+exports.resTransactionModel = {
+  type: 'object',
+  properties: {
+    id: {
+      type: 'integer',
+    },
+    client: {
+      type: 'integer',
+    },
+    note: {
+      type: 'string',
+      example: 'Observação da compra.',
+    },
+    value: {
+      type: 'number',
+    },
+  },
+};
