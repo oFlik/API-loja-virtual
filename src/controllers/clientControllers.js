@@ -31,7 +31,7 @@ exports.editClient = async (req, res) => {
   const { name, email } = req.body;
   const { id } = req.params;
 
-  if (name || email) {
+  if (!name || !email) {
     return res.status(400).json({ message: 'Preencha todos os campos obrigatórios' });
   }
 
@@ -57,7 +57,6 @@ exports.editClient = async (req, res) => {
       .update({
         name,
         email,
-        cpf,
       })
       .returning('*');
 
