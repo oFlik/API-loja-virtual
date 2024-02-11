@@ -16,13 +16,13 @@ exports.newTransaction = async (req, res) => {
       const product = products.find((product) => product.id === order.product);
 
       if (!product || product.stock_count <= 0) {
-        return res.status(400).json({
+        return res.status(403).json({
           mensagem: `O produto com o id ${order.product} não está disponível`,
         });
       }
 
       if (order.quantity > product.stock_count) {
-        return res.status(400).json({
+        return res.status(403).json({
           mensagem: `O produto com o id ${order.product} possui apenas ${product.stock_count} unidades disponíveis`,
         });
       }
@@ -58,7 +58,7 @@ exports.newTransaction = async (req, res) => {
       });
     }
 
-    return res.status(200).json(transaction[0]);
+    return res.status(201).json(transaction[0]);
   } catch (e) {
     return res.status(500).json({ message: `Erro no servidor: ${e.message}` });
   }
