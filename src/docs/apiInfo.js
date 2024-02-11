@@ -39,6 +39,8 @@ const swaggerDocument = {
       ResProductModel: schemas.resProductModel,
       ReqProductModel: schemas.reqProductModel,
       ProductTypes: schemas.productTypes,
+      ReqClientModel: schemas.reqClientModel,
+      ResClientModel: schemas.resClientModel,
     },
     responses: {
       error401: responses.errorModels.error401,
