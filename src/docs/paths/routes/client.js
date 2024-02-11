@@ -65,7 +65,68 @@ exports.new = {
 };
 
 exports.edit = {
-  put: {},
+  put: {
+    summary: 'Efetua a edição de um cliente existente',
+    description:
+      'Ao enviar as novas informações necessárias para editar um cliente, o mesmo é alterado no banco de dados da aplicação.',
+    operationId: 'editClient',
+    parameters: [
+      {
+        in: 'path',
+        name: 'id',
+        type: 'integer',
+        required: true,
+        description: 'Id numérico do cliente a ser editado.',
+      },
+    ],
+    requestBody: {
+      description: 'Informações do cliente a ser editado.',
+      content: {
+        'application/json': {
+          schema: {
+            $ref: '#/components/schemas/ReqClientWithoutCpf',
+          },
+        },
+      },
+      required: true,
+    },
+    responses: {
+      200: {
+        description: 'Mensagem de sucesso e dados do cliente alterado.',
+        content: {
+          'application/json': {
+            schema: {
+              properties: {
+                message: {
+                  enum: ['Cliente atualizado com sucesso!'],
+                  type: 'string',
+                },
+                productData: {
+                  $ref: '#/components/schemas/ResClientModel',
+                },
+              },
+              type: 'object',
+            },
+          },
+        },
+      },
+      400: {
+        $ref: '#/components/responses/missingBodyPropertie',
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      403: {
+        $ref: '#/components/responses/duplicateEmail'
+      },
+      404: {
+        $ref: '#/components/responses/error404',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
 };
 
 exports.list = {
