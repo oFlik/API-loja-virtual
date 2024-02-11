@@ -32,11 +32,11 @@ exports.userData = {
       type: 'integer',
     },
     name: {
-      enum: ['Nome do usuário'],
+      example: 'Nome do usuário',
       type: 'string',
     },
     email: {
-      enum: ['Email do usuário'],
+      example: 'Email do usuário',
       type: 'string',
     },
   },
@@ -49,7 +49,7 @@ exports.resProductModel = {
       type: 'integer',
     },
     description: {
-      enum: ['Descrição do produto'],
+      example: 'Descrição do produto',
       type: 'string',
     },
     stock_count: {
@@ -68,7 +68,7 @@ exports.reqProductModel = {
   type: 'object',
   properties: {
     description: {
-      enum: ['Descrição do produto'],
+      example: 'Descrição do produto',
       type: 'string',
     },
     stock_count: {
@@ -90,7 +90,7 @@ exports.productTypes = {
       type: 'integer',
     },
     description: {
-      enum: ['Descrição da categoria'],
+      example: 'Descrição da categoria',
       type: 'string',
     },
   },
@@ -100,15 +100,15 @@ exports.reqClientModel = {
   type: 'object',
   properties: {
     name: {
-      enum: ['Nome do cliente'],
+      example: 'Nome do cliente',
       type: 'string',
     },
     email: {
-      enum: ['E-mail do cliente'],
+      example: 'E-mail do cliente',
       type: 'string',
     },
     cpf: {
-      enum: ['CPF do cliente'],
+      example: 'CPF do cliente',
       type: 'string',
     },
   },
@@ -118,11 +118,11 @@ exports.reqClientWithoutCpf = {
   type: 'object',
   properties: {
     name: {
-      enum: ['Nome do cliente'],
+      example: 'Nome do cliente',
       type: 'string',
     },
     email: {
-      enum: ['E-mail do cliente'],
+      example: 'E-mail do cliente',
       type: 'string',
     },
   },
@@ -135,15 +135,15 @@ exports.resClientModel = {
       type: 'integer',
     },
     name: {
-      enum: ['Nome do cliente'],
+      example: 'Nome do cliente',
       type: 'string',
     },
     email: {
-      enum: ['E-mail do cliente'],
+      example: 'E-mail do cliente',
       type: 'string',
     },
     cpf: {
-      enum: ['CPF do cliente'],
+      example: 'CPF do cliente',
       type: 'string',
     },
   },
@@ -156,7 +156,7 @@ exports.reqTransactionModel = {
       type: 'integer',
     },
     note: {
-      enum: ['Uma observação para a compra, caso exista.'],
+      example: 'Uma observação para a compra, caso exista.',
       type: 'string',
     },
     productOrders: {

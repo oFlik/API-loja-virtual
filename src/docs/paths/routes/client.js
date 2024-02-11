@@ -23,7 +23,7 @@ exports.new = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Cliente cadastrado com sucesso!'],
+                  example: 'Cliente cadastrado com sucesso!',
                   type: 'string',
                 },
                 clientData: {
@@ -48,7 +48,7 @@ exports.new = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Email ou CPF ja cadastrados.'],
+                  example: 'Email ou CPF ja cadastrados.',
                   type: 'string',
                 },
               },
@@ -98,7 +98,7 @@ exports.edit = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Cliente atualizado com sucesso!'],
+                  example: 'Cliente atualizado com sucesso!',
                   type: 'string',
                 },
                 productData: {

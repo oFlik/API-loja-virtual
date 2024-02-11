@@ -5,7 +5,7 @@ exports.error401 = {
       schema: {
         properties: {
           message: {
-            enum: ['Falha na autenticação, verificar credenciais.'],
+            example: 'Falha na autenticação, verificar credenciais.',
             type: 'string',
           },
         },
@@ -22,7 +22,7 @@ exports.error404 = {
       schema: {
         properties: {
           message: {
-            enum: ['O recurso acessado não existe.'],
+            example: 'O recurso acessado não existe.',
             type: 'string',
           },
         },
@@ -39,7 +39,7 @@ exports.error500 = {
       schema: {
         properties: {
           message: {
-            enum: ['Erro interno no servidor. {{ Descrição do erro }}'],
+            example: 'Erro interno no servidor. {{ Descrição do erro }}',
             type: 'string',
           },
         },
@@ -56,7 +56,7 @@ exports.duplicateEmail = {
       schema: {
         properties: {
           message: {
-            enum: ['Email já cadastrado. Tente efetuar o login!'],
+            example: 'Email já cadastrado. Tente efetuar o login!',
             type: 'string',
           },
         },
@@ -73,9 +73,9 @@ exports.weakPassword = {
       schema: {
         properties: {
           message: {
-            enum: [
+            example:
               'Sua senha não é forte o bastante. Lembre-se de usar no mínimo 8 caracteres, letras minúsculas, maiusculas e números.',
-            ],
+
             type: 'string',
           },
         },
@@ -92,7 +92,7 @@ exports.missingBodyPropertie = {
       schema: {
         properties: {
           message: {
-            enum: ['Todos os campos devem ser preenchidos..'],
+            example: 'Todos os campos devem ser preenchidos.',
             type: 'string',
           },
         },

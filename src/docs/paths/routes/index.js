@@ -12,11 +12,11 @@ exports.indexPage = {
             schema: {
               properties: {
                 name: {
-                  enum: ['API Loja Virtual'],
+                  example: 'API Loja Virtual',
                   type: 'string',
                 },
                 about: {
-                  enum: ['Uma API com todas as funcionalidades necessárias em uma loja virtual.'],
+                  example: 'Uma API com todas as funcionalidades necessárias em uma loja virtual.',
                   type: 'string',
                 },
               },

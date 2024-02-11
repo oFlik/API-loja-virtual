@@ -24,7 +24,7 @@ exports.register = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Cliente cadastrado com sucesso!'],
+                  example: 'Cliente cadastrado com sucesso!',
                   type: 'string',
                 },
                 userData: {
@@ -101,7 +101,7 @@ exports.profile = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Cliente cadastrado com sucesso!'],
+                  example: 'Cliente cadastrado com sucesso!',
                   type: 'string',
                 },
               },

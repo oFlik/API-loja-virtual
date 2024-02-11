@@ -23,7 +23,7 @@ exports.add = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Produto criado com sucesso!'],
+                  example: 'Produto criado com sucesso!',
                   type: 'string',
                 },
                 productData: {
@@ -112,7 +112,7 @@ exports.edit = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Produto atualizado com sucesso'],
+                  example: 'Produto atualizado com sucesso',
                   type: 'string',
                 },
                 productData: {
@@ -212,7 +212,7 @@ exports.delete = {
             schema: {
               properties: {
                 message: {
-                  enum: ['O produto esta vinculado a um pedido e não pode ser excluido'],
+                  example: 'O produto esta vinculado a um pedido e não pode ser excluido',
                   type: 'string',
                 },
               },

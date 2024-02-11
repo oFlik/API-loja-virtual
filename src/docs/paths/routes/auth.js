@@ -24,14 +24,14 @@ exports.login = {
             schema: {
               properties: {
                 message: {
-                  enum: ['Login realizado com sucesso!'],
+                  example: 'Login realizado com sucesso!',
                   type: 'string',
                 },
                 userData: {
                   $ref: '#/components/schemas/UserData',
                 },
                 token: {
-                  enum: ['Token de autenticação'],
+                  example: 'Token de autenticação',
                   type: 'string',
                 },
               },
