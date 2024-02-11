@@ -38,7 +38,7 @@ exports.new = {
           'application/json': {
             schema: {
               type: 'string',
-              example: `O produto com o id ({ id }} não está disponível`
+              example: `O produto com o id ({ id }} não está disponível`,
             },
           },
         },
@@ -54,5 +54,39 @@ exports.new = {
 };
 
 exports.list = {
-  get: {},
+  get: {
+    summary: 'Obtém as informações de todas as vendas cadastrados.',
+    description:
+      'Ao acessar esta rota, o usuário irá receber uma array contendo todas as informações sobre as vendas cadastradas no banco de dados.',
+    operationId: 'getTransactionList',
+    parameters: [
+      {
+        in: 'query',
+        name: 'client',
+        type: 'integer',
+        description: 'Id numérico de um cliente para retornar apenas as compras do mesmo.',
+      },
+    ],
+    responses: {
+      200: {
+        description: 'Retorna uma array com as vendas cadastrados',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/ResTransactionModel',
+              },
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
 };
