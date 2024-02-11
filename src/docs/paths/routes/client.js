@@ -117,7 +117,7 @@ exports.edit = {
         $ref: '#/components/responses/error401',
       },
       403: {
-        $ref: '#/components/responses/duplicateEmail'
+        $ref: '#/components/responses/duplicateEmail',
       },
       404: {
         $ref: '#/components/responses/error404',
@@ -130,9 +130,70 @@ exports.edit = {
 };
 
 exports.list = {
-  get: {},
+  get: {
+    summary: 'Obtém as informações de todos os clientes cadastrados.',
+    description:
+      'Ao acessar esta rota, o usuário irá receber uma array contendo todas as informações sobre os clientes cadastrados no banco de dados.',
+    operationId: 'getClientsList',
+    responses: {
+      200: {
+        description: 'Retorna uma array com os clientes cadastrados',
+        content: {
+          'application/json': {
+            schema: {
+              type: 'array',
+              items: {
+                $ref: '#/components/schemas/ResClientModel',
+              },
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
 };
 
 exports.detail = {
-  get: {},
+  get: {
+    summary: 'Obtém as informações de um cliente específico.',
+    description:
+      'Ao acessar esta rota, o usuário irá receber um objeto contendo todas as informações sobre o cliente selecionado.',
+    operationId: 'detailClient',
+    parameters: [
+      {
+        in: 'path',
+        name: 'id',
+        type: 'integer',
+        required: true,
+        description: 'Id numérico do cliente desejado.',
+      },
+    ],
+    responses: {
+      200: {
+        description: 'Retorna as informações do cliente selecionado',
+        content: {
+          'application/json': {
+            schema: {
+              $ref: '#/components/schemas/ResClientModel',
+            },
+          },
+        },
+      },
+      401: {
+        $ref: '#/components/responses/error401',
+      },
+      404: {
+        $ref: '#/components/responses/error404',
+      },
+      500: {
+        $ref: '#/components/responses/error500',
+      },
+    },
+  },
 };
