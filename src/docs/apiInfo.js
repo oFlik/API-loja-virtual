@@ -25,9 +25,9 @@ const swaggerDocument = {
     '/product/delete/{id}': paths.product.delete,
     '/product/types': paths.product.types,
     '/client/new': paths.client.new,
-    '/client/edit': paths.client.edit,
+    '/client/edit/{id}': paths.client.edit,
     '/client/list': paths.client.list,
-    '/client/detail/{clientId}': paths.client.detail,
+    '/client/detail/{id}': paths.client.detail,
     '/transaction/new': '',
     '/transaction/list': '',
   },
@@ -41,6 +41,7 @@ const swaggerDocument = {
       ProductTypes: schemas.productTypes,
       ReqClientModel: schemas.reqClientModel,
       ResClientModel: schemas.resClientModel,
+      ReqClientWithoutCpf: schemas.reqClientWithoutCpf
     },
     responses: {
       error401: responses.errorModels.error401,
