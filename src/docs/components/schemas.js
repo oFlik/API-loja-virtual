@@ -95,3 +95,42 @@ exports.productTypes = {
     },
   },
 };
+
+exports.reqClientModel = {
+  type: 'object',
+  properties: {
+    name: {
+      enum: ['Nome do cliente'],
+      type: 'string'
+    },
+    email: {
+      enum: ['E-mail do cliente'],
+      type: 'string'
+    },
+    cpf: {
+      enum: ['CPF do cliente'],
+      type: 'string'
+    }
+  }
+}
+
+exports.resClientModel = {
+  type: 'object',
+  properties: {
+    id: {
+      type: 'integer'
+    },
+    name: {
+      enum: ['Nome do cliente'],
+      type: 'string'
+    },
+    email: {
+      enum: ['E-mail do cliente'],
+      type: 'string'
+    },
+    cpf: {
+      enum: ['CPF do cliente'],
+      type: 'string'
+    }
+  }
+}
