@@ -28,8 +28,8 @@ const swaggerDocument = {
     '/client/edit/{id}': paths.client.edit,
     '/client/list': paths.client.list,
     '/client/detail/{id}': paths.client.detail,
-    '/transaction/new': '',
-    '/transaction/list': '',
+    '/transaction/new': paths.transaction.new,
+    '/transaction/list': paths.transaction.list,
   },
   components: {
     schemas: {
@@ -41,7 +41,9 @@ const swaggerDocument = {
       ProductTypes: schemas.productTypes,
       ReqClientModel: schemas.reqClientModel,
       ResClientModel: schemas.resClientModel,
-      ReqClientWithoutCpf: schemas.reqClientWithoutCpf
+      ReqClientWithoutCpf: schemas.reqClientWithoutCpf,
+      ReqTransactionModel: schemas.reqTransactionModel,
+      ResTransactionModel: schemas.resTransactionModel,
     },
     responses: {
       error401: responses.errorModels.error401,
